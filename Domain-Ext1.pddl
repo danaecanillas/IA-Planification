@@ -12,16 +12,17 @@
     ;)
 
     (:predicates
-        (predecessor ?before - content ?after - content)
-        (seen ?x - content)
+        (predecessor ?c1 - content ?c2 - content)
+        (seen ?c - content)
         (dayAssigned ?d - day)
         (previous ?d1 - day ?d2 - day)
     )
 
     (:action watch
         :parameters (?c - content ?d - day)
-        :precondition (and (forall (?before - content) (imply (predecessor ?before ?c) (seen ?before)))
-                           (forall (?dprev - day) (imply (previous ?dprev ?d) (dayAssigned ?dprev)) ) )
+        :precondition (and (forall (?c2 - content) (imply (predecessor ?c2 ?c) (seen ?c2)))
+                           (forall (?d2 - day) (imply (previous ?d2 ?d) (dayAssigned ?d2)))
+                           (not (dayAssigned ?d)) )
         ;                   (forall (?dprev - day) (imply (or (> (dayOrder ?dprev) (dayOrder ?d)) (not (dayAssigned ?dprev))) )) )
         :effect (and (seen ?c) (dayAssigned ?d))
     )
