@@ -6,9 +6,10 @@
     )
     
     (:functions
-        (dayCapacity)
+        (dayCapacity ?d - day)
         (dayOrder ?d - day)
-        (dayAssigned ?d - day)
+        (contentDuration ?c - content)
+        (currentDay)
     )
 
     (:predicates
@@ -21,13 +22,14 @@
 
     (:action watch
         :parameters (?c - content ?d - day)
-        :precondition (and (> (dayCapacity) (dayAssigned ?d))
-                           (forall (?d2 - day) (imply (< (dayOrder ?d2) (dayOrder ?d)) (= (dayAssigned ?d2) (dayCapacity))) )
+        :precondition (and (not (< (dayOrder ?d) (currentDay)))
+                           (not (> (contentDuration ?c) (dayCapacity ?d)))
+                           (forall (?d2 - day) (imply (< (dayOrder ?d2) (dayOrder ?d)) (> (contentDuration ?c) (dayCapacity ?d2))) )
                            (allPreSeen ?c)
                            (forall (?c2 - content) (imply(parallel ?c ?c2) (allPreSeen ?c2)) )
                            (forall (?c2 - content) (imply(predecessor ?c2 ?c) (allParSeen ?c2)) )
                       )
-        :effect (and (seen ?c) (increase (dayAssigned ?d) 1))
+        :effect (and (seen ?c) (increase (currentDay) (- (dayOrder ?d) (currentDay))) (decrease (dayCapacity ?d) (contentDuration ?c)))
     )
 
     (:action setAllPreSeen

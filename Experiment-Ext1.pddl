@@ -15,14 +15,6 @@
         (previous d2 d4)
         (previous d3 d4)
 
-        ;(= (dayOrder d1) 1)
-        ;(= (dayOrder d2) 2)
-        ;(= (dayOrder d3) 3)
-        ;(= (dayOrder d4) 4)
-        ;(= (dayOrder d5) 5)
-        ;(= (dayOrder d6) 6)
-        ;(= (dayOrder d7) 7)
-
     )
 
     ;(:goal (and (forall (?c - content) (seen ?c))))

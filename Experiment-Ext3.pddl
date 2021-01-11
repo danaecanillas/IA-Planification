@@ -29,7 +29,7 @@
         (= (dayAssigned d6) 0)
         (= (dayAssigned d7) 0)
 
-        (= (dayCapacity) 100)
+        (= (dayCapacity) 3)
 
 
     )

@@ -1,0 +1,38 @@
+
+ff: parsing domain file
+domain 'PLANNEREXT1' defined
+ ... done.
+ff: parsing problem file
+problem 'EXT1' defined
+ ... done.
+
+
+translating negated cond for predicate DAYASSIGNED
+translating negated cond for predicate PREVIOUS
+translating negated cond for predicate PREDECESSOR
+no metric specified.
+
+ff: search configuration is best-first search.
+Metric is plan length.
+NO COST MINIMIZATION (and no cost-minimizing relaxed plans).
+
+advancing to goal distance:    4
+                               3
+                               2
+                               1
+                               0
+
+ff: found legal plan as follows
+step    0: WATCH C1 D1
+        1: WATCH C2 D2
+        2: WATCH C3 D3
+        3: WATCH C5 D4
+
+time spent:    0.00 seconds instantiating 0 easy, 20 hard action templates
+               0.00 seconds reachability analysis, yielding 13 facts and 20 actions
+               0.00 seconds creating final representation with 13 relevant facts, 0 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 11 states, to a max depth of 0
+               0.00 seconds total time
+

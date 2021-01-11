@@ -1,4 +1,4 @@
-(define (domain plannerExt1)
+(define (domain plannerExt3)
     (:requirements :adl :typing )
     
     (:types content - item
@@ -6,25 +6,40 @@
     )
     
     (:functions
+        (dayCapacity)
         (dayOrder ?d - day)
-        (dayCapacity ?d - day)
         (dayAssigned ?d - day)
     )
 
     (:predicates
-        (predecessor ?c1 - content ?c2 - content)
         (seen ?c - content)
-        (dayAssigned ?d - day)
-        (previous ?d1 - day ?d2 - day)
+        (predecessor ?c1 - content ?c2 - content)
+        (parallel ?c1 - content ?c2 - content)
+        (allPreSeen ?c - content)
+        (allParSeen ?c - content)
     )
 
     (:action watch
         :parameters (?c - content ?d - day)
-        :precondition (and (forall (?c2 - content) (imply (predecessor ?c2 ?c) (seen ?c2)))
-                        ;    (forall (?d2 - day) (imply (previous ?d2 ?d) (dayAssigned ?d2)))
-                           (not (dayAssigned ?d)) ;)
-                          (forall (?dprev - day) (imply (or (> (dayOrder ?dprev) (dayOrder ?d)) (not (dayAssigned ?dprev))) )) )
-        :effect (and (seen ?c) (dayAssigned ?d))
+        :precondition (and (> (dayCapacity) (dayAssigned ?d))
+                           (forall (?d2 - day) (imply (< (dayOrder ?d2) (dayOrder ?d)) (= (dayAssigned ?d2) (dayCapacity))) )
+                           (allPreSeen ?c)
+                           (forall (?c2 - content) (imply(parallel ?c ?c2) (allPreSeen ?c2)) )
+                           (forall (?c2 - content) (imply(predecessor ?c2 ?c) (allParSeen ?c2)) )
+                      )
+        :effect (and (seen ?c) (increase (dayAssigned ?d) 1))
+    )
+
+    (:action setAllPreSeen
+        :parameters (?c - content)
+        :precondition (forall (?c2 - content) (imply (predecessor ?c2 ?c) (seen ?c2)) )
+        :effect (allPreSeen ?c)
+    )
+
+    (:action setAllParSeen
+        :parameters (?c - content)
+        :precondition (forall (?c2 - content) (imply (parallel ?c2 ?c) (seen ?c2)) )
+        :effect (allParSeen ?c)
     )
 
 )

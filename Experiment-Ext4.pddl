@@ -3,6 +3,17 @@
     (:objects c1 c2 c3 c4 c5 c6 c7 - content
               d1 d2 d3 d4 d5 d6 d7 - day)
     (:init
+
+        (= (currentDay) 1)
+
+        (= (contentDuration c1) 50)
+        (= (contentDuration c2) 70)
+        (= (contentDuration c3) 10)
+        (= (contentDuration c4) 100)
+        (= (contentDuration c5) 65)
+        (= (contentDuration c6) 115)
+        (= (contentDuration c7) 38)
+
         (predecessor c1 c3)
         (predecessor c2 c5)
         (predecessor c3 c6)
@@ -21,15 +32,13 @@
         (= (dayOrder d6) 6)
         (= (dayOrder d7) 7)
 
-        (= (dayAssigned d1) 0)
-        (= (dayAssigned d2) 0)
-        (= (dayAssigned d3) 0)
-        (= (dayAssigned d4) 0)
-        (= (dayAssigned d5) 0)
-        (= (dayAssigned d6) 0)
-        (= (dayAssigned d7) 0)
-
-        (= (dayCapacity) 100)
+        (= (dayCapacity d1) 200)
+        (= (dayCapacity d2) 200)
+        (= (dayCapacity d3) 200)
+        (= (dayCapacity d4) 200)
+        (= (dayCapacity d5) 200)
+        (= (dayCapacity d6) 200)
+        (= (dayCapacity d7) 200)
 
 
     )

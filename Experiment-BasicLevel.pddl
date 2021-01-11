@@ -12,5 +12,5 @@
     )
 
     ; (:goal (and (forall (?c - content) (seen ?c))))
-    (:goal (and (seen s1e2) (seen s2e2)))
+    (:goal (and (seen s1e2) (seen s2e3)))
 )
