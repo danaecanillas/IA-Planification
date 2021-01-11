@@ -1,5 +1,5 @@
-(define (problem Ext3)
-    (:domain plannerExt3)
+(define (problem Ext2)
+    (:domain plannerExt2)
     (:objects c1 c2 c3 c4 c5 c6 c7 - content
               d1 d2 d3 d4 d5 d6 d7 - day)
     (:init

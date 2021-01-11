@@ -1,4 +1,4 @@
-(define (domain plannerExt3)
+(define (domain plannerExt4)
     (:requirements :adl :typing )
     
     (:types content - item
