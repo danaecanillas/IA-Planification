@@ -5,19 +5,13 @@
     
     (:predicates
         (predecessor ?before - content ?after - content)
-        ; (watch ?x - content)
-        (seen ?x - content)
+        (seen ?c - content)
     )
 
     (:action watch
-        :parameters (?x - content)
-        :precondition (forall (?before - content) (imply (predecessor ?before ?x) (seen ?before)))
-        :effect (seen ?x)
+        :parameters (?c - content)
+        :precondition (forall (?before - content) (imply (predecessor ?before ?c) (seen ?before)))
+        :effect (seen ?c)
     )
-    
-    ; (:action watch_predecessor 
-    ;     :parameters (?before - content ?after - content)
-    ;     :precondition (and (predecessor ?before ?after) (watch ?after))
-    ;     :effect (watch ?before)
-    ; )
+
 )
