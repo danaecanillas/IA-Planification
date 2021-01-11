@@ -1,5 +1,5 @@
-(define (problem test-01)
-    (:domain planner)
+(define (problem test-02)
+    (:domain planner2)
     (:objects s1e1 s1e2 s1e3 s2e1 s2e2 s2e3 s2e4 - content)
     (:init
         ; (predecessor none s1e1)
