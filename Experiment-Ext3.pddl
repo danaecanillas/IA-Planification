@@ -1,7 +1,7 @@
 (define (problem Ext3)
     (:domain plannerExt3)
     (:objects c1 c2 c3 c4 c5 c6 c7 - content
-              d1 d2 d3 d4 d5 d6 d7 - day)
+              d1 d2 d3 d4 - day)
     (:init
         (predecessor c1 c3)
         (predecessor c2 c5)
@@ -17,17 +17,17 @@
         (= (dayOrder d2) 2)
         (= (dayOrder d3) 3)
         (= (dayOrder d4) 4)
-        (= (dayOrder d5) 5)
-        (= (dayOrder d6) 6)
-        (= (dayOrder d7) 7)
+        ; (= (dayOrder d5) 5)
+        ; (= (dayOrder d6) 6)
+        ; (= (dayOrder d7) 7)
 
         (= (dayAssigned d1) 0)
         (= (dayAssigned d2) 0)
         (= (dayAssigned d3) 0)
         (= (dayAssigned d4) 0)
-        (= (dayAssigned d5) 0)
-        (= (dayAssigned d6) 0)
-        (= (dayAssigned d7) 0)
+        ; (= (dayAssigned d5) 0)
+        ; (= (dayAssigned d6) 0)
+        ; (= (dayAssigned d7) 0)
 
         (= (dayCapacity) 3)
 
