@@ -1,21 +1,26 @@
 (define (problem Ext1)
     (:domain plannerExt1)
-    (:objects s1e1 s1e2 s1e3 s2e1 s2e2 s2e3 s2e4 - content
-              d1 d2 d3 d4 d5 d6 d7 - day)
+    (:objects c1 c2 c3 c4 - content
+              d1 d2 d3 d4 - day)
     (:init
-        (predecessor s1e1 s1e2)
-        (predecessor s1e2 s1e3)
-        (predecessor s2e1 s2e2)
-        (predecessor s2e2 s2e3)
-        (predecessor s2e3 s2e4)
+        (predecessor c1 c2)
+        (predecessor c2 c3)
+        (predecessor c3 c4)
 
-        (= (dayOrder d1) 1)
-        (= (dayOrder d2) 2)
-        (= (dayOrder d3) 3)
-        (= (dayOrder d4) 4)
-        (= (dayOrder d5) 5)
-        (= (dayOrder d6) 6)
-        (= (dayOrder d7) 7)
+        (previous d1 d2)
+        (previous d1 d3)
+        (previous d1 d4)
+        (previous d2 d3)
+        (previous d2 d4)
+        (previous d3 d4)
+
+        ;(= (dayOrder d1) 1)
+        ;(= (dayOrder d2) 2)
+        ;(= (dayOrder d3) 3)
+        ;(= (dayOrder d4) 4)
+        ;(= (dayOrder d5) 5)
+        ;(= (dayOrder d6) 6)
+        ;(= (dayOrder d7) 7)
 
     )
 
